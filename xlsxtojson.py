@@ -1,4 +1,4 @@
-#! /usr/bin/python2.7
+#! /usr/bin/env python3
 import xlrd, json, os.path, requests as req
 from progress.bar import Bar
 
@@ -25,6 +25,7 @@ def get_coordinates(address):
     res = res.json()
     
     if len(res['results']) == 0:
+        print('No results returned for %s' %address)
         output = {
             "type": 'Point',
             "coordinates": []
